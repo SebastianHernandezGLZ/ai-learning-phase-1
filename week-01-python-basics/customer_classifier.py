@@ -30,7 +30,7 @@ for i in range(len(customer_names)):
     print(f"{customer_names[i]}: {customer_status}")
 
     if customer_status == "Hot lead":
-        hot_leads_count = hot_leads_count + 1
+        hot_leads_count += 1
 
 print(f"Total de clientes revisados: {len(customer_names)}")
 print(f"Total de Hot leads: {hot_leads_count}")
