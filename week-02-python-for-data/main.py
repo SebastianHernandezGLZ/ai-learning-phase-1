@@ -65,8 +65,25 @@ def read_customers_from_csv(file_path):
         return customers
 
 
+def process_customers(customers):
+    status_counts = {}
+    
+    for customer in customers:
+        status = get_customer_status(customer)
+        print_customer_result(customer['name'], status)
+        status_counts[status] = status_counts.get(status, 0) + 1
+
+    print_summary(status_counts, len(customers))
+
+
+def print_summary(status_counts, total_customers):
+    print("Summary:")
+    print(f"Total customers: {total_customers}")
+    
+    for status, count in status_counts.items():
+        print(f"{status}: {count}")
+    
+
 if __name__ == "__main__":
     customers = read_customers_from_csv("week-02-python-for-data/clientes.csv")
-
-    for customer in customers:
-        print_customer_result(customer['name'], get_customer_status(customer))
+    process_customers(customers)
