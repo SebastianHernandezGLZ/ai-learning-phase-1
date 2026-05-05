@@ -31,21 +31,42 @@ def get_customer_status(customer):
     )
 
 
+def convert_yes_no_to_bool(value):
+    if value == "si":
+        return True
+    else:
+        return False
+    
+
+def convert_row_to_customer(row):
+    new_customer = {
+        "name": row['nombre'],
+        "age": int(row['edad']),
+        "career_interest": row['carrera_interes'],
+        "contact_channel": row['medio_contacto'],
+        "replied": convert_yes_no_to_bool(row['respondio']),
+        "requested_info": convert_yes_no_to_bool(row['pidio_info']),
+        "follow_up": convert_yes_no_to_bool(row['seguimiento']),
+        "days_without_reply": int(row['dias_sin_responder'])
+    }
+
+    return new_customer
+
+
 def read_customers_from_csv(file_path):
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
+        customers = []
 
         for row in reader:
-            nombre = row["nombre"]
-            edad = row["edad"]
-            carrera = row["carrera_interes"]
-            medio = row["medio_contacto"]
-            respondio = row["respondio"]
-            pidio_info = row["pidio_info"]
-            seguimiento = row["seguimiento"]
-            dias = row["dias_sin_responder"]
+            customer = convert_row_to_customer(row)
+            customers.append(customer)
+            
+        return customers
 
-            print(f"{nombre} - {edad} - {carrera} - {medio} - {respondio} - {pidio_info} - {seguimiento} - {dias}")
 
 if __name__ == "__main__":
-    read_customers_from_csv("week-02-python-for-data/clientes.csv")
+    customers = read_customers_from_csv("week-02-python-for-data/clientes.csv")
+
+    for customer in customers:
+        print_customer_result(customer['name'], get_customer_status(customer))
