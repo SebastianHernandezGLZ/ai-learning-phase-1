@@ -34,10 +34,18 @@ def get_customer_status(customer):
 def read_customers_from_csv(file_path):
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        for row in reader:
-            print(f"{row['nombre']} - {row['edad']} - {row['carrera_interes']} - {row['medio_contacto']} - {row['respondio']} - {row['pidio_info']} - {row['seguimiento']} - {row['dias_sin_responder']}")
 
-    
+        for row in reader:
+            nombre = row["nombre"]
+            edad = row["edad"]
+            carrera = row["carrera_interes"]
+            medio = row["medio_contacto"]
+            respondio = row["respondio"]
+            pidio_info = row["pidio_info"]
+            seguimiento = row["seguimiento"]
+            dias = row["dias_sin_responder"]
+
+            print(f"{nombre} - {edad} - {carrera} - {medio} - {respondio} - {pidio_info} - {seguimiento} - {dias}")
 
 if __name__ == "__main__":
     read_customers_from_csv("week-02-python-for-data/clientes.csv")
