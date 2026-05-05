@@ -116,4 +116,4 @@ print(customer["replied"])
 print(customer["requested_info"])
 print(customer["follow_up"])
 
-print(f"{customer["name"]} está interesado en {customer["career_interest"]} y llegó por {customer["contact_channel"]}.")
+print(f"{customer['name']} está interesado en {customer['career_interest']} y llegó por {customer['contact_channel']}.")

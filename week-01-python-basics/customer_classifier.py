@@ -1,4 +1,5 @@
-# Día 6: Funciones aplicadas al mini sistema de clientes
+# Week 01: Customer Classifier
+# Basic Python project using variables, conditionals, lists, dictionaries, loops, and functions.
 
 
 def classify_customer(replied, requested_info, follow_up):
@@ -61,7 +62,6 @@ def process_customers(customers):
         interested_leads_count,
         cold_leads_count
     )
-
 
 
 customers = [
@@ -128,4 +128,5 @@ customers = [
 ]
 
 
-process_customers(customers)
+if __name__ == "__main__":
+    process_customers(customers)
