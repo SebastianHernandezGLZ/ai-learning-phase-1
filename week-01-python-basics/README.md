@@ -61,6 +61,7 @@ Open the terminal inside this folder and run:
 
 ```bash
 python customer_classifier.py
+```
 
 ## Expected output
 
