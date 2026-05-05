@@ -1,4 +1,4 @@
-# Día 4: Listas y ciclos aplicados a clientes
+# Día 5: Diccionarios aplicados a clientes
 
 
 def classify_customer(replied, requested_info, follow_up):
@@ -11,26 +11,85 @@ def classify_customer(replied, requested_info, follow_up):
     else:
         return "Cold lead"
 
+separator = "---------------------------------------------"
+customers = [
+    {
+        "name": "Rafael",
+        "age": 21,
+        "career_interest": "Inteligencia Artificial",
+        "contact_channel": "WhatsApp",
+        "replied": True,
+        "requested_info": True,
+        "follow_up": False,
+        "lead_score": 70
+    },
+    {
+        "name": "Fernanda",
+        "age": 19,
+        "career_interest": "Psicología",
+        "contact_channel": "Instagram",
+        "replied": True,
+        "requested_info": True,
+        "follow_up": True,
+        "lead_score": 95
+    },
+    {
+        "name": "Enrique",
+        "age": 23,
+        "career_interest": "Derecho",
+        "contact_channel": "Facebook",
+        "replied": False,
+        "requested_info": False,
+        "follow_up": False,
+        "lead_score": 10
+    },
+    {
+        "name": "Paulina",
+        "age": 20,
+        "career_interest": "Administración",
+        "contact_channel": "WhatsApp",
+        "replied": True,
+        "requested_info": False,
+        "follow_up": False,
+        "lead_score": 45
+    },
+    {
+        "name": "Daniel",
+        "age": 22,
+        "career_interest": "Mercadotecnia",
+        "contact_channel": "Instagram",
+        "replied": True,
+        "requested_info": False,
+        "follow_up": True,
+        "lead_score": 50
+    }
+]
 
-customer_names = ["Rafael", "Fernanda", "Enrique", "Paulina", "Daniel"]
-
-replied_values = [True, True, False, True, True]
-requested_info_values = [True, True, False, False, False]
-follow_up_values = [False, True, False, False, True]
 
 hot_leads_count = 0
+warm_leads_count = 0
 
-for i in range(len(customer_names)):
+for customer in customers:
     customer_status = classify_customer(
-        replied_values[i],
-        requested_info_values[i],
-        follow_up_values[i]
+        customer["replied"],
+        customer["requested_info"],
+        customer["follow_up"]
     )
 
-    print(f"{customer_names[i]}: {customer_status}")
+    print(f'''Cliente: {customer['name']}
+Edad: {customer['age']}
+Carrera de interés: {customer['career_interest']}
+Medio de contacto: {customer['contact_channel']}
+Lead score: {customer["lead_score"]}
+Clasificación: {customer_status}
+{separator}''')
 
     if customer_status == "Hot lead":
         hot_leads_count += 1
+    elif customer_status == "Warm lead":
+        warm_leads_count += 1 
 
-print(f"Total de clientes revisados: {len(customer_names)}")
+
+print(f"Total de clientes revisados: {len(customers)}")
 print(f"Total de Hot leads: {hot_leads_count}")
+print(f"Total de Warm leads: {warm_leads_count}")

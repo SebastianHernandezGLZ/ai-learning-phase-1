@@ -74,7 +74,7 @@ print(f"{customer_name_2} tiene un lead score de {lead_score_ana}.")'''
 
 # Día 4: Listas y ciclos
 
-customers = ["Rafael", "Fernanda", "Enrique", "Paulina"]
+'''customers = ["Rafael", "Fernanda", "Enrique", "Paulina"]
 
 for customer in customers:
     print(f"Revisando cliente: {customer}")
@@ -92,4 +92,28 @@ careers = ["IA", "Psicología", "Derecho", "Administración"]
 channels = ["WhatsApp", "Instagram", "Facebook", "WhatsApp"]
 
 for i in range(len(customers)):
-    print(f"{customers[i]} está interesado en {careers[i]} y llegó por {channels[i]}")
+    print(f"{customers[i]} está interesado/a en {careers[i]} y llegó por {channels[i]}")'''
+
+
+
+# Día 5: Diccionarios
+
+customer = {
+    "name": "Rafael",
+    "age": 21,
+    "career_interest": "Inteligencia Artificial",
+    "contact_channel": "WhatsApp",
+    "replied": True,
+    "requested_info": True,
+    "follow_up": False
+}
+
+print(customer["name"])
+print(customer["age"])
+print(customer["career_interest"])
+print(customer["contact_channel"])
+print(customer["replied"])
+print(customer["requested_info"])
+print(customer["follow_up"])
+
+print(f"{customer["name"]} está interesado en {customer["career_interest"]} y llegó por {customer["contact_channel"]}.")
