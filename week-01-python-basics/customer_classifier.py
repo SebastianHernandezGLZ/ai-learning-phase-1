@@ -1,3 +1,6 @@
+# Día 4: Listas y ciclos aplicados a clientes
+
+
 def classify_customer(replied, requested_info, follow_up):
     if replied and requested_info and follow_up:
         return "Hot lead"
@@ -9,19 +12,25 @@ def classify_customer(replied, requested_info, follow_up):
         return "Cold lead"
 
 
-customer_name_1 = "Rafael"
-customer_status_1 = classify_customer(True, True, False)
+customer_names = ["Rafael", "Fernanda", "Enrique", "Paulina", "Daniel"]
 
-customer_name_2 = "Fernanda"
-customer_status_2 = classify_customer(True, True, True)
+replied_values = [True, True, False, True, True]
+requested_info_values = [True, True, False, False, False]
+follow_up_values = [False, True, False, False, True]
 
-customer_name_3 = "Enrique"
-customer_status_3 = classify_customer(False, False, False)
+hot_leads_count = 0
 
-customer_name_4 = "Paulina"
-customer_status_4 = classify_customer(True, False, False)
+for i in range(len(customer_names)):
+    customer_status = classify_customer(
+        replied_values[i],
+        requested_info_values[i],
+        follow_up_values[i]
+    )
 
-print(f"{customer_name_1}: {customer_status_1}")
-print(f"{customer_name_2}: {customer_status_2}")
-print(f"{customer_name_3}: {customer_status_3}")
-print(f"{customer_name_4}: {customer_status_4}")
+    print(f"{customer_names[i]}: {customer_status}")
+
+    if customer_status == "Hot lead":
+        hot_leads_count = hot_leads_count + 1
+
+print(f"Total de clientes revisados: {len(customer_names)}")
+print(f"Total de Hot leads: {hot_leads_count}")

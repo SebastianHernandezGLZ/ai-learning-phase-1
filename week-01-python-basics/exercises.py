@@ -20,7 +20,7 @@ print(f"El cliente {customer_name} está interesado en {career_interest} y lleg�
 
 
 # Día 2: 
-customer_name = "Luis"
+'''customer_name = "Luis"
 age = 21
 career_interest = "Ingeniería en Inteligencia Artificial"
 contact_channel = "WhatsApp"
@@ -68,5 +68,28 @@ print("Días desde el contacto:", days_since_contact_2)
 
 print(f"El cliente {customer_name_2} tiene {age_2} años, está interesado en {career_interest_2} y llegó por {contact_channel_2}.")
 
-print(f"{customer_name_2} tiene un lead score de {lead_score_ana}.")
+print(f"{customer_name_2} tiene un lead score de {lead_score_ana}.")'''
 
+
+
+# Día 4: Listas y ciclos
+
+customers = ["Rafael", "Fernanda", "Enrique", "Paulina"]
+
+for customer in customers:
+    print(f"Revisando cliente: {customer}")
+
+
+customers = ["Rafael", "Fernanda", "Enrique", "Paulina"]
+ages = [21, 19, 23, 20]
+
+for i in range(len(customers)):
+    print(f"{customers[i]} tiene {ages[i]} años.")
+
+
+customers = ["Rafael", "Fernanda", "Enrique", "Paulina"]
+careers = ["IA", "Psicología", "Derecho", "Administración"]
+channels = ["WhatsApp", "Instagram", "Facebook", "WhatsApp"]
+
+for i in range(len(customers)):
+    print(f"{customers[i]} está interesado en {careers[i]} y llegó por {channels[i]}")
